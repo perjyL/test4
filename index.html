@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        #cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            transition: all 1.5s ease;
+        }
+
+        #start-button {
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .rotating-container {
+            display: none; /* Initially hidden */
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            transform-style: preserve-3d;
+            perspective: 800px;
+        }
+
+        .rotating-image {
+            position: absolute;
+            width: 150px;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform-origin: center center;
+            border: 3px solid #fff;
+            opacity: 0;
+            animation: rotate 18s infinite linear;
+        }
+
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg) translate(300px) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg) translate(300px) rotate(-360deg); }
+        }
+
+        .center-text {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            color: #000000;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 白布和按钮的容器 -->
+    <div id="cover">
+        <button id="start-button">点击收复台湾</button>
+    </div>
+
+    <!-- 旋转的图片容器 -->
+    <div class="rotating-container" id="main-content">
+        <img src="https://gitee.com/linhp7/test/raw/master/3211c184477f1d670cf43807b3a22a8.png" alt="Image 1" class="rotating-image">
+        <img src="https://gitee.com/linhp7/test/raw/master/40694ce745feadab86458874ba46340.png" alt="Image 2" class="rotating-image">
+        <img src="https://gitee.com/linhp7/test/raw/master/4cc489a7b640ae564e9e60006c1dd40.png" alt="Image 3" class="rotating-image">
+        <img src="https://gitee.com/linhp7/test/raw/master/58aef9cc9b773112e02f2377784f814.jpg" alt="Image 4" class="rotating-image">
+        <img src="https://gitee.com/linhp7/test/raw/master/9002671e25c904b01df9814198e5135.png" alt="Image 5" class="rotating-image">
+        <img src="https://gitee.com/linhp7/test/raw/master/a183c023009c77dfee910b895c61c78.png" alt="Image 6" class="rotating-image">
+        <img src="https://gitee.com/linhp7/test/raw/master/addf4e3047c3645061ee5c849c6f3d5.png" alt="Image 7" class="rotating-image">
+        <img src="https://gitee.com/linhp7/test/raw/master/d6a8ca0b07dab92a394d2ef170435dd.png" alt="Image 8" class="rotating-image">
+        <img src="https://gitee.com/linhp7/test/raw/master/e0fd5cad910915cd557051c80801f5e.png" alt="Image 9" class="rotating-image">
+    </div>
+
+    <!-- 中央文本 -->
+    <div class="center-text">请选择你的英雄</div>
+
+    <audio id="background-music" loop>
+        <source src="https://gitee.com/linhp7/test/raw/master/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.getElementById('start-button').addEventListener('click', function() {
+            // 开始播放音乐
+            var audio = document.getElementById('background-music');
+            audio.play();
+
+            // 隐藏白布和按钮
+            var cover = document.getElementById('cover');
+            cover.style.opacity = '0';
+            cover.style.transform = 'translateY(-100%)';
+
+            // 显示旋转的图片和文本
+            setTimeout(function() {
+                cover.style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                document.querySelector('.center-text').style.display = 'block';
+            }, 1500); // 动画持续时间与CSS中的transition时间一致
+        });
+    </script>
+
+</body>
+</html>

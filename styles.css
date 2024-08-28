@@ -1,0 +1,89 @@
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    user-select: none;
+    pointer-events: none;
+}
+
+.rotating-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 100px auto;
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+.rotating-image {
+    position: absolute;
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    top: 90%;
+    left: 50%;
+    transform-origin: center center;
+    border: 3px solid #fff;
+    opacity: 0; /* Hide images initially */
+    animation: rotate 18s infinite linear;
+}
+
+/* Position each image at equal angles around a circle */
+.rotating-image:nth-child(1) {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-90deg) translate(300px) rotate(90deg) scale(2.0);
+    animation-delay: -16s;
+}
+.rotating-image:nth-child(2) {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-67.2deg) translate(300px) rotate(67.2deg);
+    animation-delay: -14s;
+}
+.rotating-image:nth-child(3) {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-45deg) translate(300px) rotate(45deg);
+    animation-delay: -12s;
+}
+.rotating-image:nth-child(4) {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-22.8deg) translate(300px) rotate(22.8deg);
+    animation-delay: -10s;
+}
+.rotating-image:nth-child(5) {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) translate(300px) rotate(0deg);
+    animation-delay: -8s;
+}
+.rotating-image:nth-child(6) {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-67.2deg) translate(300px) rotate(67.2deg);
+    animation-delay: -6s;
+}
+.rotating-image:nth-child(7) {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-45deg) translate(300px) rotate(45deg);
+    animation-delay: -4s;
+}
+.rotating-image:nth-child(8) {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-22.8deg) translate(300px) rotate(22.8deg);
+    animation-delay: -2s;
+}
+.rotating-image:nth-child(9) {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) translate(300px) rotate(0deg);
+    animation-delay: 0s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translate(280px) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translate(280px) rotate(-360deg);
+    }
+}
